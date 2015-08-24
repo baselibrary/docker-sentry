@@ -11,7 +11,7 @@ RUN \
 WORKDIR /sentry
 
 ## Install apps
-RUN pip install --upgrade redis hiredis nydus psycopg2 mysql-python python-memcached sentry==7.7.0
+RUN pip install --upgrade psycopg2 mysql-python python-decouple sentry==7.7.0
 
 ## Config apps
 ADD Procfile             /sentry/Procfile
