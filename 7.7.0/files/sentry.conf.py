@@ -133,7 +133,7 @@ SENTRY_TSDB = 'sentry.tsdb.redis.RedisTSDB'
 
 SENTRY_FILESTORE = 'django.core.files.storage.FileSystemStorage'
 SENTRY_FILESTORE_OPTIONS = {
-    'location': '/tmp/sentry-files',
+    'location': '/sentry/tmp/sentry-files',
 }
 
 ##############
@@ -162,8 +162,7 @@ SENTRY_WEB_OPTIONS = {
 # For more information check Django's documentation:
 #  https://docs.djangoproject.com/en/1.3/topics/email/?from=olddocs#e-mail-backends
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
+EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST          = os.environ.get('SENTRY_EMAIL_HOST', 'localhost')
 EMAIL_HOST_USER     = os.environ.get('SENTRY_EMAIL_USER', '')
 EMAIL_HOST_PASSWORD = os.environ.get('SENTRY_EMAIL_PASS', '')
@@ -175,7 +174,7 @@ SERVER_EMAIL        = os.environ.get('SENTRY_SERVER_EMAIL', 'root@localhost')
 
 # If you're using mailgun for inbound mail, set your API key and configure a
 # route to forward to /api/hooks/mailgun/inbound/
-MAILGUN_API_KEY = os.environ.get('SENTRY_MAILGUN_API_KEY', '')
+MAILGUN_API_KEY     = os.environ.get('SENTRY_MAILGUN_API_KEY', '')
 
 ########
 # etc. #
