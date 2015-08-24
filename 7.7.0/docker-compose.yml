@@ -1,0 +1,24 @@
+sentry:
+  build: .
+  links:
+    cache: cache
+    database: database
+  ports:
+    - "9000:9000"
+  environment:
+    - SENTRY_DB_ENGINE=sentry.db.postgres
+    - SENTRY_DB_HOST=database
+    - SENTRY_DB_NAME=sentry
+    - SENTRY_DB_USER=sentry
+    - SENTRY_DB_PASS=sentry
+    - SENTRY_REDIS_HOST=cache
+    - SENTRY_REDIS_PORT=6379
+    - SENTRY_REDIS_DB=0
+cache:
+  image: quay.io/baselibrary/redis:2.8
+database:
+  image: quay.io/baselibrary/postgres:9.4
+  environment:
+    - POSTGRES_USER=sentry
+    - POSTGRES_DATABASE=sentry
+    - POSTGRES_PASSWORD=sentry
