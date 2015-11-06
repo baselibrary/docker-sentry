@@ -1,5 +1,5 @@
 sentry:
-  build: .
+  build: 7.7/
   links:
     cache: cache
     database: database
@@ -15,9 +15,9 @@ sentry:
     - SENTRY_REDIS_PORT=6379
     - SENTRY_REDIS_DB=0
 cache:
-  image: quay.io/baselibrary/redis:2.8
+  image: baselibrary/redis:2.8
 database:
-  image: quay.io/baselibrary/postgres:9.4
+  image: baselibrary/postgres:9.4
   environment:
     - POSTGRES_USER=sentry
     - POSTGRES_DATABASE=sentry
