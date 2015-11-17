@@ -3,7 +3,7 @@ MAINTAINER ShawnMa <qsma@thoughtworks.com>
 
 ## Version
 ENV SENTRY_MAJOR   7.7
-ENV SENTRY_RELEASE 7.7.1
+ENV SENTRY_RELEASE 7.7.4
 
 ## Dependencies
 RUN \
