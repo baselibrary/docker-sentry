@@ -12,7 +12,13 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 
 ## Packages
-RUN pip install --upgrade psycopg2 mysql-python python-decouple sentry==$SENTRY_RELEASE
+RUN \
+  pip install --upgrade psycopg2 mysql-python python-decouple sentry==$SENTRY_RELEASE
+
+## Tools
+RUN \
+  curl -fsSL "https://github.com/mattn/goreman/releases/download/v0.0.7/goreman_linux_amd64.tar.gz" | tar -zxvf - --strip-components=1 -C /usr/bin/ goreman_linux_amd64/goreman
+
 
 ## Configurations
 ADD Procfile              /var/lib/sentry/Procfile
@@ -33,6 +39,6 @@ WORKDIR /var/lib/sentry
 
 VOLUME ["${SENTRY_DATA_DIR}"]
 
-ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 
