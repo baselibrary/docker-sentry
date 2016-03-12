@@ -13,4 +13,4 @@
 
 ### Usage
 
-    docker run -it --rm baselibrary/sentry
+    docker run -it --rm baselibrary/sentry 
